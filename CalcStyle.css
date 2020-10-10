@@ -1,3 +1,13 @@
+.head {
+  height: 4rem;
+  background-color: slategray;
+  font-size: 2rem;
+  text-align: center;
+  font-weight: bolder;
+  color: honeydew;
+  padding-top: 2rem;
+}
+
 body {
   margin: 0;
 }

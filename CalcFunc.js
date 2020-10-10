@@ -20,9 +20,6 @@ function checkForm() {
     let jobTitle = $('.title').val();
     jobTitle = String(jobTitle);
     jobTitle = jobTitle.trim();
-    let aSalary = $('.anSalary').val();
-    aSalary = String(aSalary);
-    aSalary = aSalary.trim();
     if (firstName.length > 0 && lastName.length > 0 &&
         idCheck.length > 0 && jobTitle.length > 0 && aSalary.length > 0) {
       entryGet();
@@ -36,7 +33,7 @@ function entryGet(){
    let id = $('.id').val();
    let title = $('.title').val();
    let anSalary = $('.anSalary').val();
-   anSalary = Number(anSalary);
+   anSalary = Number(anSalary);  // changes salary back to a number
    const employee = {
        FirstName: fName, 
        LastName: lName, 
@@ -46,6 +43,9 @@ function entryGet(){
     };
     $('.form').val('');
     employeeInfo.push (employee);
-    console.log(employeeInfo[0]);
+
 }
 
+function cycleProps(){
+
+}
