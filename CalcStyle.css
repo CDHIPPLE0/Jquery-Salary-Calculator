@@ -48,3 +48,11 @@ body {
   color: white;
   padding-top: 2rem;
 }
+
+.inTheGreen {
+  background-color: rgba(144, 238, 144, 0.562);
+}
+
+.inTheRed {
+  background-color: rgba(255, 0, 0, 0.342);
+}

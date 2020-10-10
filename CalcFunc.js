@@ -1,6 +1,7 @@
 $(document).ready(clickWait);
 
 const employeeList = [];
+const costAllowed = 20000;
 let totalCost =0; 
 
 function clickWait(){
@@ -66,6 +67,10 @@ function iterateAndDisplayProps(){
            <td><button class ='delete' type='submit' data-index="${i}">Delete</button></td>
          </tr>`
        )
+    }
+    $('.total').addClass("inTheGreen");
+    if(totalCost > costAllowed){
+      $('.total').addClass("inTheRed")
     }
     $('.total').text(totalCost);
 }
