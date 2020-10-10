@@ -1,0 +1,18 @@
+body {
+  margin: 0;
+}
+.container {
+  padding: 20px;
+}
+.entryButton {
+}
+
+.statTable {
+  margin-top: 8rem;
+  border-collapse: collapse;
+}
+
+.statTable td {
+  padding: 6px 10px;
+  border: 1px solid black;
+}
