@@ -1,10 +1,21 @@
+/* > says any child element * says any element */
+/* .isSelected > * {
+  background-color: green;
+} */
+
 .head {
   height: 4rem;
-  background-color: slategray;
+  background: radial-gradient(
+    circle,
+    rgba(96, 108, 116, 1) 55%,
+    rgba(136, 149, 163, 1) 100%,
+    rgba(192, 196, 208, 1) 100%
+  );
   font-size: 2rem;
   text-align: center;
-  font-weight: bolder;
-  color: honeydew;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+
+  color: white;
   padding-top: 2rem;
 }
 
@@ -25,4 +36,15 @@ body {
 .statTable td {
   padding: 6px 10px;
   border: 1px solid black;
+}
+
+.tableHead {
+  height: 4rem;
+  background-color: rgba(96, 108, 116, 1);
+  font-size: 1.5rem;
+  text-align: center;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  font-weight: bold;
+  color: white;
+  padding-top: 2rem;
 }
