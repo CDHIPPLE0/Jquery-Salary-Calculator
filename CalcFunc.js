@@ -6,7 +6,7 @@ let totalCost =0;
 
 function clickWait(){
   $('.entryButton').on('click', checkForm);
-  $('.addEmployee').on('click','.delete', removeAsk)
+  $('.addEmployee').on('click','.delete', remove)
 }
 
 function checkForm() {
@@ -43,7 +43,7 @@ function entryGet(){
        LastName: lName, 
        ID: id,
        Title: title,
-       AnnualSalary: anSalary,
+       MonthlySalary: anSalary,
        IsSelected: isSelected,
     };
     $('.form').val('');
@@ -52,34 +52,38 @@ function entryGet(){
 }
 
 function iterateAndDisplayProps(){
+  let totalCost =0;
+  $('.total').removeClass("inTheRed");
+  $('.total').removeClass("inTheGreen");
   $('.addEmployee').empty();
-  let totalCost = 0;
     for(i=0; i < employeeList.length; i++){
       let index = employeeList[i];
-      totalCost += index.AnnualSalary;
+      totalCost += index.MonthlySalary;
        $('.addEmployee').append(
          `<tr>
            <td>${index.FirstName}</td>
            <td>${index.LastName}</td>
            <td>${index.ID}</td>
            <td>${index.Title}</td>
-           <td>${index.AnnualSalary}</td>
+           <td>${index.MonthlySalary}</td>
            <td><button class ='delete' type='submit' data-index="${i}">Delete</button></td>
          </tr>`
        )
     }
+     
+     if(totalCost != 0 && totalCost < costAllowed){
     $('.total').addClass("inTheGreen");
-    if(totalCost > costAllowed){
+    }
+    else if(totalCost > costAllowed){
       $('.total').addClass("inTheRed")
     }
     $('.total').text(totalCost);
 }
 
-function removeAsk(){
+function remove(){
  let index = $(this).data('index');
- console.log(index);
  employeeList[index].IsSelected = true;
- $(this).parent().remove();
+ $(this).parent().parent().remove();
  employeeList.splice(index, 1);
  iterateAndDisplayProps();
 }

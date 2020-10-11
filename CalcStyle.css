@@ -39,6 +39,10 @@ body {
   justify-content: center;
 }
 
+.form {
+  border: solid 1.5px black;
+}
+
 .containerTable {
   display: flex;
   justify-content: center;
@@ -68,18 +72,31 @@ body {
 .tableHead {
   height: 4rem;
   background-color: rgba(96, 108, 116, 1);
-  font-size: 1.5rem;
+  font-size: 1.4rem;
   text-align: center;
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   font-weight: bold;
   color: white;
   padding-top: 2rem;
 }
-
+.tableHead td {
+  padding-left: 4rem;
+  padding-right: 4rem;
+}
 .inTheGreen {
   background-color: rgba(144, 238, 144, 0.562);
 }
 
 .inTheRed {
   background-color: rgba(255, 0, 0, 0.342);
+}
+
+.entryButton {
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1rem;
+}
+
+.entryButton {
+  border: solid 1.5px black;
 }
