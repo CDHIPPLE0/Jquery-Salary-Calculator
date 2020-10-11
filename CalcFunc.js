@@ -1,15 +1,15 @@
 $(document).ready(clickWait);
 
-const employeeList = [];
-const costAllowed = 20000;
-let totalCost =0; 
+const employeeList = []; //array of employee objects
+const costAllowed = 20000; //max budget
+let totalCost =0; //tracks cost relative to budget
 
-function clickWait(){
-  $('.entryButton').on('click', checkForm);
+function clickWait(){ //waits for click either on the submit or delete button and calls the appropriate function.
+  $('.entryButton').on('click', checkForm); 
   $('.addEmployee').on('click','.delete', remove)
 }
 
-function checkForm() {
+function checkForm() { //validates the form information, ensures spaces or blanks have not been used.
     let firstName= $('.fName').val();
     firstName = String(firstName);
     firstName = firstName.trim();
@@ -27,17 +27,17 @@ function checkForm() {
         idCheck.length > 0 && jobTitle.length > 0 && aSalary.length > 0) {
       entryGet();
     }
-    else alert('Please complete the form');
+    else alert('Please complete the form, ensure number fields contain no chars');
   }
 
-function entryGet(){
+function entryGet(){ //after form data has been trimmed and verified to contain relevant data it is sent to the array.
    let fName = $('.fName').val();
    let lName = $('.lName').val();
    let id = $('.id').val();
    let title = $('.title').val();
    let anSalary = $('.anSalary').val();
    let isSelected = false;
-   anSalary = Number(anSalary);  // changes salary back to a number
+   anSalary = Number(anSalary);  // changes salary to a number
    const employee = {
        FirstName: fName, 
        LastName: lName, 
@@ -46,14 +46,14 @@ function entryGet(){
        MonthlySalary: anSalary,
        IsSelected: isSelected,
     };
-    $('.form').val('');
+    $('.form').val(''); //refresh input value
     employeeList.push (employee);
-    iterateAndDisplayProps();
+    iterateAndDisplayProps();//sends data to be output to dom
 }
 
 function iterateAndDisplayProps(){
   let totalCost =0;
-  $('.total').removeClass("inTheRed");
+  $('.total').removeClass("inTheRed");//allows background color of totalsalary to be reset depending on budget comparison
   $('.total').removeClass("inTheGreen");
   $('.addEmployee').empty();
     for(i=0; i < employeeList.length; i++){
@@ -71,7 +71,7 @@ function iterateAndDisplayProps(){
        )
     }
      
-     if(totalCost != 0 && totalCost < costAllowed){
+     if(totalCost != 0 && totalCost < costAllowed){ //sets background color of totalsalary to respond to budget comparison
     $('.total').addClass("inTheGreen");
     }
     else if(totalCost > costAllowed){
@@ -80,7 +80,7 @@ function iterateAndDisplayProps(){
     $('.total').text('$' + totalCost.toLocaleString('en-US'));
 }
 
-function remove(){
+function remove(){ //deletes from table on delete button press and calls the display function.
  let index = $(this).data('index');
  employeeList[index].IsSelected = true;
  $(this).parent().parent().remove();

@@ -1,9 +1,9 @@
 # Project Name
 
-[Project Instructions](./INSTRUCTIONS.md), this line may be removed once you have updated the README.md
+Jquery Salary Calculator
 
 ## Description
 
-Your project description goes here. What problem did you solve? How did you solve it?
+I was asked to build a browser calculator that tracked total expenditure in the area of monthly salary. Jquery was used in all areas where possible so that I might gain better proficiency in the library. An html table was used to output the data.
 
 Additional README details can be found [here](https://github.com/PrimeAcademy/readme-template/blob/master/README.md).
