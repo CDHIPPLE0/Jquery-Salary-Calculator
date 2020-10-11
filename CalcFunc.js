@@ -65,7 +65,7 @@ function iterateAndDisplayProps(){
            <td class="font1">${index.LastName}</td>
            <td class="font1">${index.ID}</td>
            <td class="font1">${index.Title}</td>
-           <td class="font1">$${index.MonthlySalary}</td>
+           <td class="font1">$${index.MonthlySalary.toLocaleString('en-US')}</td>
            <td><button class ='delete button' type='submit' data-index="${i}">Delete</button></td>
          </tr>`
        )
@@ -76,8 +76,8 @@ function iterateAndDisplayProps(){
     }
     else if(totalCost > costAllowed){
       $('.total').addClass("inTheRed")
-    }
-    $('.total').text('$' + totalCost);
+    } 
+    $('.total').text('$' + totalCost.toLocaleString('en-US'));
 }
 
 function remove(){
