@@ -61,12 +61,12 @@ function iterateAndDisplayProps(){
       totalCost += index.MonthlySalary;
        $('.addEmployee').append(
          `<tr>
-           <td>${index.FirstName}</td>
-           <td>${index.LastName}</td>
-           <td>${index.ID}</td>
-           <td>${index.Title}</td>
-           <td>${index.MonthlySalary}</td>
-           <td><button class ='delete' type='submit' data-index="${i}">Delete</button></td>
+           <td class="font1">${index.FirstName}</td>
+           <td class="font1">${index.LastName}</td>
+           <td class="font1">${index.ID}</td>
+           <td class="font1">${index.Title}</td>
+           <td class="font1">$${index.MonthlySalary}</td>
+           <td><button class ='delete button' type='submit' data-index="${i}">Delete</button></td>
          </tr>`
        )
     }
@@ -77,7 +77,7 @@ function iterateAndDisplayProps(){
     else if(totalCost > costAllowed){
       $('.total').addClass("inTheRed")
     }
-    $('.total').text(totalCost);
+    $('.total').text('$' + totalCost);
 }
 
 function remove(){

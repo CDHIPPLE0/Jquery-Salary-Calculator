@@ -1,7 +1,16 @@
 /* > says any child element * says any element */
 /* .isSelected > * {
-  background-color: green;
-} */
+  /* background-color: green;} */
+
+body {
+  margin: 0;
+  background: radial-gradient(
+    circle,
+    rgba(188, 201, 215, 1) 44%,
+    rgba(209, 220, 232, 1) 69%,
+    rgba(228, 237, 245, 1) 100%
+  );
+}
 
 .head {
   height: 4rem;
@@ -19,13 +28,6 @@
   padding-top: 2rem;
 }
 
-body {
-  margin: 0;
-}
-.containerTable {
-  padding: 20px;
-}
-
 .containerForm {
   border: solid black 1px;
   background: linear-gradient(
@@ -39,26 +41,33 @@ body {
   justify-content: center;
 }
 
+.entry {
+  margin: 1.2rem;
+}
+
 .form {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 16px;
   border: solid 1.5px black;
+  margin-right: 1.5rem;
+}
+
+.button {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  border: solid 1.5px black;
+  padding-left: 15px;
+  padding-right: 15px;
+  font-size: 1rem;
 }
 
 .containerTable {
   display: flex;
   justify-content: center;
+  padding: 20px;
 }
 
-.totalRow {
-  text-align: right;
-}
-
-.entry {
-  margin: 1rem;
-}
-
-.form {
-  margin-right: 2.5rem;
-}
 .statTable {
   margin-top: 8rem;
   border-collapse: collapse;
@@ -79,24 +88,37 @@ body {
   color: white;
   padding-top: 2rem;
 }
+
 .tableHead td {
   padding-left: 4rem;
   padding-right: 4rem;
 }
+
+.addEmployee tr {
+  background-color: white;
+}
+
+.addEmployee tr:nth-child(even) {
+  background-color: rgba(200, 205, 208, 1);
+}
+
+.totalRow {
+  background-color: rgba(96, 108, 116, 1);
+  color: white;
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  text-align: right;
+}
+
 .inTheGreen {
-  background-color: rgba(144, 238, 144, 0.562);
+  background-color: rgba(144, 238, 144, 0.322);
 }
 
 .inTheRed {
   background-color: rgba(255, 0, 0, 0.342);
 }
 
-.entryButton {
-  padding-left: 15px;
-  padding-right: 15px;
-  font-size: 1rem;
-}
-
-.entryButton {
-  border: solid 1.5px black;
+.font1 {
+  font-family: 'Courier New', Courier, monospace;
+  font-weight: bold;
+  font-size: 1.1rem;
 }
