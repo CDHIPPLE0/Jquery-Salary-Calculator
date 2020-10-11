@@ -5,38 +5,19 @@ const costAllowed = 20000; //max budget
 let totalCost =0; //tracks cost relative to budget
 
 function clickWait(){ //waits for click either on the submit or delete button and calls the appropriate function.
-  $('.entryButton').on('click', checkForm); 
+  $('.entryButton').on('click', entryGet); 
   $('.addEmployee').on('click','.delete', remove)
 }
 
-function checkForm() { //validates the form information, ensures spaces or blanks have not been used.
-    let firstName= $('.fName').val();
-    firstName = String(firstName);
-    firstName = firstName.trim();
-    let lastName = $('.lName').val();
-    lastName = String(lastName);
-    lastName = lastName.trim();
-    let idCheck = $('.id').val();
-    idCheck = String(idCheck);
-    idCheck = idCheck.trim();
-    let jobTitle = $('.title').val();
-    jobTitle = String(jobTitle);
-    jobTitle = jobTitle.trim();
-    let aSalary = $('.anSalary').val();
-    if (firstName.length > 0 && lastName.length > 0 &&
-        idCheck.length > 0 && jobTitle.length > 0 && aSalary.length > 0) {
-      entryGet();
-    }
-    else alert('Please complete the form, ensure number fields contain no chars');
-  }
-
 function entryGet(){ //after form data has been trimmed and verified to contain relevant data it is sent to the array.
-   let fName = $('.fName').val();
-   let lName = $('.lName').val();
-   let id = $('.id').val();
-   let title = $('.title').val();
-   let anSalary = $('.anSalary').val();
+   let fName = $('.fName').val().trim();
+   let lName = $('.lName').val().trim();
+   let id = $('.id').val().trim();
+   let title = $('.title').val().trim();
+   let anSalary = $('.anSalary').val().trim();
    let isSelected = false;
+   if (fName.length > 0 && lName.length > 0 &&
+    id.length > 0 && title.length > 0 && anSalary.length > 0) {
    anSalary = Number(anSalary);  // changes salary to a number
    const employee = {
        FirstName: fName, 
@@ -50,7 +31,8 @@ function entryGet(){ //after form data has been trimmed and verified to contain 
     employeeList.push (employee);
     iterateAndDisplayProps();//sends data to be output to dom
 }
-
+ else alert('Please complete the form, ensure number fields contain no chars');
+}
 function iterateAndDisplayProps(){
   let totalCost =0;
   $('.total').removeClass("inTheRed");//allows background color of totalsalary to be reset depending on budget comparison
@@ -70,7 +52,6 @@ function iterateAndDisplayProps(){
          </tr>`
        )
     }
-     
      if(totalCost != 0 && totalCost < costAllowed){ //sets background color of totalsalary to respond to budget comparison
     $('.total').addClass("inTheGreen");
     }
