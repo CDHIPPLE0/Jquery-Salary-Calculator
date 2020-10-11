@@ -16,9 +16,7 @@ function entryGet(){ //after form data has been trimmed and verified to contain 
    let title = $('.title').val().trim();
    let anSalary = $('.anSalary').val().trim();
    anSalary = anSalary / 12 ;
-   console.log(anSalary);
    anSalary =  anSalary.toFixed(2);
-   let isSelected = false;
    if (fName.length > 0 && lName.length > 0 &&
     id.length > 0 && title.length > 0 && anSalary.length > 0) {
    anSalary = Number(anSalary);  // changes salary to a number
@@ -28,7 +26,6 @@ function entryGet(){ //after form data has been trimmed and verified to contain 
        ID: id,
        Title: title,
        MonthlySalary: anSalary,
-       IsSelected: isSelected,
     };
     $('.form').val(''); //refresh input value
     employeeList.push (employee);
@@ -38,7 +35,7 @@ function entryGet(){ //after form data has been trimmed and verified to contain 
 }
 
 function iterateAndDisplayProps(){
-  let totalCost =0;
+  let totalCost = 0;
   $('.total').removeClass("inTheRed");//allows background color of totalsalary to be reset depending on budget comparison
   $('.total').removeClass("inTheGreen");
   $('.addEmployee').empty();
@@ -67,7 +64,6 @@ function iterateAndDisplayProps(){
 
 function remove(){ //deletes from table on delete button press and calls the display function.
  let index = $(this).data('index');
- employeeList[index].IsSelected = true;
  $(this).parent().parent().remove();
  employeeList.splice(index, 1);
  iterateAndDisplayProps();
