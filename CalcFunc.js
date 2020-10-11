@@ -55,8 +55,8 @@ function iterateAndDisplayProps(){
   $('.addEmployee').empty();
   let totalCost = 0;
     for(i=0; i < employeeList.length; i++){
-      const index = employeeList[i];
-      totalCost += employeeList[i].AnnualSalary;
+      let index = employeeList[i];
+      totalCost += index.AnnualSalary;
        $('.addEmployee').append(
          `<tr>
            <td>${index.FirstName}</td>
@@ -76,19 +76,10 @@ function iterateAndDisplayProps(){
 }
 
 function removeAsk(){
- const index = $(this).data('index');
+ let index = $(this).data('index');
+ console.log(index);
  employeeList[index].IsSelected = true;
-  $(this).parent().parent().remove();
-  removeDo();
-}
-
-function removeDo(){
-  let totalCost = 0;
-  for(i=0; i < employeeList.length; i++){
-    const index = employeeList[i];
-    if(index.IsSelected){
-      employeeList.splice(index, 1);
-    }
- }
-iterateAndDisplayProps();
+ $(this).parent().remove();
+ employeeList.splice(index, 1);
+ iterateAndDisplayProps();
 }
