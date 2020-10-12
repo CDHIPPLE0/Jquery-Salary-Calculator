@@ -39,7 +39,7 @@ function iterateAndDisplayProps(){
   $('.total').removeClass("inTheRed");//allows background color of totalsalary to be reset depending on budget comparison
   $('.total').removeClass("inTheGreen");
   $('.addEmployee').empty();
-    for(i=0; i < employeeList.length; i++){
+    for(let i=0; i < employeeList.length; i++){
       let index = employeeList[i];
       totalCost += index.MonthlySalary;
        $('.addEmployee').append(
